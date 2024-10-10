@@ -55,10 +55,10 @@ CREATE TABLE Venti_User (
     position_id INT NOT NULL, 
     department_id INT,
     
-    CONSTRAINT pk_venti_user PRIMARY KEY (user_id),
+	CONSTRAINT pk_venti_user PRIMARY KEY (user_id),
 	CONSTRAINT fk_venti_user_status FOREIGN KEY (status_id) REFERENCES Venti_Status (status_id),
 	CONSTRAINT fk_venti_user_position FOREIGN KEY (position_id) REFERENCES Venti_Position (position_id),
-    CONSTRAINT fk_venti_user_department FOREIGN KEY (department_id) REFERENCES Venti_Department (department_id)
+	CONSTRAINT fk_venti_user_department FOREIGN KEY (department_id) REFERENCES Venti_Department (department_id)
   
   );
   
