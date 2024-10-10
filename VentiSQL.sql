@@ -40,7 +40,7 @@ Insert into Venti_Department (department_name, department_description) values ("
 Insert into Venti_Department (department_name, department_description) values ("Marketing", "A galera mais de boa da empresa");
 Insert into Venti_Department (department_name, department_description) values ("Setor Estratégico", "Onde Maquiavel e Sun Tzu trabalham.");
 
-CREATE TABLE Venti_employee (
+CREATE TABLE Venti_Employee (
 	employee_id INT AUTO_INCREMENT,
 	employee_name VARCHAR(50) NOT NULL,
 	employee_cpf VARCHAR(14) UNIQUE NOT NULL,
@@ -62,8 +62,8 @@ CREATE TABLE Venti_employee (
   
   );
   
-Insert into Venti_employee values (null, "Venti", "589.063.795-95", "1500-06-16", "Ruas de Mondstadt", "71996047669", "BardoBebum@gmail.com", 0.0, CURRENT_DATE(), 0, 1, 1, 4);
-Insert into Venti_employee values (null, "Jean", "274.853.755-63", "2002-03-14", "Base dos Cavaleiros de Favonius", "71932046668", "Workaholic@VouDesmaiar.com", 20000.0, CURRENT_DATE(), 40, 1, 4, 4);
-Insert into Venti_employee values (null, "Lumine", "000.000.000-00", "1516-01-23", "Viajante", null, "CadeMeuBro@outlook.com", 500.0, CURRENT_DATE(), 5, 1, 2, 1);
-Insert into Venti_employee values (null, "Amber", "684.480.185-83", "2006-08-10", "Base dos Cavaleiros de Favonius", 71991120816, "BaraoCoelho@gmail.com", 3000.0, CURRENT_DATE(), 0, 4, 3, 1);
+Insert into Venti_Employee values (null, "Venti", "589.063.795-95", "1500-06-16", "Ruas de Mondstadt", "71996047669", "BardoBebum@gmail.com", 0.0, CURRENT_DATE(), 0, 1, 1, 4);
+Insert into Venti_Employee values (null, "Jean", "274.853.755-63", "2002-03-14", "Base dos Cavaleiros de Favonius", "71932046668", "Workaholic@VouDesmaiar.com", 20000.0, CURRENT_DATE(), 40, 1, 4, 4);
+Insert into Venti_Employee values (null, "Lumine", "000.000.000-00", "1516-01-23", "Viajante", null, "CadeMeuBro@outlook.com", 500.0, CURRENT_DATE(), 5, 1, 2, 1);
+Insert into Venti_Employee values (null, "Amber", "684.480.185-83", "2006-08-10", "Base dos Cavaleiros de Favonius", 71991120816, "BaraoCoelho@gmail.com", 3000.0, CURRENT_DATE(), 0, 4, 3, 1);
 
