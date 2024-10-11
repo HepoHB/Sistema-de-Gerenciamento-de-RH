@@ -26,10 +26,6 @@ CREATE TABLE Venti_Position (
 	CONSTRAINT pk_venti_position PRIMARY KEY (position_id)
   
 );
-INSERT INTO Venti_Position (position_name, position_description) VALUES ("CEO", "O Manda-Chuva da Empresa");
-INSERT INTO Venti_Position (position_name, position_description) VALUES ("Estagiário", "O carinha que será escravizado");
-INSERT INTO Venti_Position (position_name, position_description) VALUES ("Coordenador", "O cara que irá escravizar o Estagiário");
-INSERT INTO Venti_Position (position_name, position_description) VALUES ("CTO", "Parecido com o Manda-Chuva da Empresa, mas pra tecnologia");
 
 CREATE TABLE Venti_Department (
 	department_id INT AUTO_INCREMENT,
@@ -39,10 +35,6 @@ CREATE TABLE Venti_Department (
 	CONSTRAINT pk_venti_department PRIMARY KEY (department_id)
   
 );
-INSERT INTO Venti_Department (department_name, department_description) VALUES ("Recursos Humanos", "Essa gente contrata e paga salário");
-INSERT INTO Venti_Department (department_name, department_description) VALUES ("TI", "Os nerds de óculos ficam aqui");
-INSERT INTO Venti_Department (department_name, department_description) VALUES ("Marketing", "A galera mais de boa da empresa");
-INSERT INTO Venti_Department (department_name, department_description) VALUES ("Setor Estratégico", "Onde Maquiavel e Sun Tzu trabalham.");
 
 CREATE TABLE Venti_Employee (
 	employee_id INT AUTO_INCREMENT,
@@ -65,11 +57,6 @@ CREATE TABLE Venti_Employee (
 	CONSTRAINT fk_venti_employee_department FOREIGN KEY (department_id) REFERENCES Venti_Department (department_id)
   
 );
-  
-INSERT INTO Venti_Employee VALUES (null, "Venti", "589.063.795-95", "1500-06-16", "Ruas de Mondstadt", "71996047669", "BardoBebum@gmail.com", 0.0, CURRENT_DATE(), 0, 1, 1, 4);
-INSERT INTO Venti_Employee VALUES (null, "Jean", "274.853.755-63", "2002-03-14", "Base dos Cavaleiros de Favonius", "71932046668", "Workaholic@VouDesmaiar.com", 20000.0, CURRENT_DATE(), 40, 1, 4, 4);
-INSERT INTO Venti_Employee VALUES (null, "Lumine", "000.000.000-00", "1516-01-23", "Viajante", null, "CadeMeuBro@outlook.com", 500.0, CURRENT_DATE(), 5, 1, 2, 1);
-INSERT INTO Venti_Employee VALUES (null, "Amber", "684.480.185-83", "2006-08-10", "Base dos Cavaleiros de Favonius", 71991120816, "BaraoCoelho@gmail.com", 3000.0, CURRENT_DATE(), 0, 4, 3, 1);
 
 CREATE TABLE Venti_TimeSheet(
 	timesheet_id INT AUTO_INCREMENT,
@@ -83,9 +70,6 @@ CREATE TABLE Venti_TimeSheet(
 	CONSTRAINT fk_venti_timesheet_employee FOREIGN KEY (employee_id) REFERENCES Venti_Employee (employee_id)
     
 );
-INSERT INTO Venti_TimeSheet VALUES(null, "2024-10-08", "08:02:00", "20:00:00", 2, 2);
-INSERT INTO Venti_TimeSheet VALUES(null, "2024-10-08", "08:02:00", "16:00:00", null, 3);
-INSERT INTO Venti_TimeSheet VALUES(null, "2024-10-09", "08:02:00", null, null, 2);
     
 CREATE TABLE Venti_Company(
 	company_id INT AUTO_INCREMENT,
@@ -96,7 +80,7 @@ CREATE TABLE Venti_Company(
 	CONSTRAINT pk_venti_company PRIMARY KEY (company_id)
     
 );
-INSERT INTO Venti_Company VALUES (null, "Cavaleiros de Favonius","82.706.395/0001-07",0);
+INSERT INTO Venti_Company VALUES (null, "Tevyat", "95.634.269/0001-36", 0);
     
 CREATE TABLE Venti_Payroll(
 	payroll_id INT AUTO_INCREMENT,
@@ -109,8 +93,6 @@ CREATE TABLE Venti_Payroll(
 	CONSTRAINT fk_venti_payroll_company FOREIGN KEY (company_id) REFERENCES Venti_Company (company_id)
     
     );
-INSERT INTO Venti_Payroll VALUES (null, CURRENT_DATE(), 2, 1);
-INSERT INTO Venti_Payroll VALUES (null, CURRENT_DATE(), 3, 1);
 
 CREATE TABLE Venti_Discount(
 	discount_id INT AUTO_INCREMENT,
@@ -123,8 +105,6 @@ CREATE TABLE Venti_Discount(
 	CONSTRAINT fk_venti_discount_payroll FOREIGN KEY (payroll_id) REFERENCES Venti_Payroll(payroll_id)
     
 );
-INSERT INTO Venti_Discount VALUES (null, "IRRF", 27.5, "PERCENTUAL", 1);
-INSERT INTO Venti_Discount VALUES (null, "INSS", 7.0, "PERCENTUAL", 1);
 
 CREATE TABLE Venti_Bonus(
 	bonus_id INT AUTO_INCREMENT,
@@ -137,8 +117,6 @@ CREATE TABLE Venti_Bonus(
 	CONSTRAINT fk_venti_bonus_payroll FOREIGN KEY (payroll_id) REFERENCES Venti_Payroll (payroll_id)
 
 );
-INSERT INTO Venti_Bonus VALUES (null, "Funcionário do Mês", 500, "FIXO", 1);
-INSERT INTO Venti_Bonus VALUES (null, "Comissões", 5.0, "PERCENTUAL", 1);
 
 CREATE TABLE Venti_Performance_Review(
 	performance_review_id INT AUTO_INCREMENT,
@@ -150,8 +128,6 @@ CREATE TABLE Venti_Performance_Review(
 	CONSTRAINT fk_venti_performance_review_employee FOREIGN KEY (employee_id) REFERENCES Venti_Employee (employee_id)
 
 );
-INSERT INTO Venti_Performance_Review VALUES (null, CURRENT_DATE(), "Jean, você trabalha muito. Vá tirar umas férias, pelo amor", 2);
-INSERT INTO Venti_Performance_Review VALUES (null, CURRENT_DATE(), "Venti, você é um vagabundo. Pare de beber e vá trabalhar!!!", 1);
 
 CREATE TABLE Venti_Vacation(
 	vacation_id INT AUTO_INCREMENT,
@@ -165,5 +141,3 @@ CREATE TABLE Venti_Vacation(
 	CONSTRAINT fk_venti_vacation_status FOREIGN KEY (status_id) REFERENCES Venti_Status (status_id)
     
 );
-INSERT INTO Venti_Vacation VALUES (null, "2024-10-11", "2024-11-11", 4, 6);
-INSERT INTO Venti_Vacation VALUES (null, null, null, 2, 5);
