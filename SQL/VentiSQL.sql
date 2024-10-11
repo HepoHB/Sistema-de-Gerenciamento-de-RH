@@ -14,6 +14,10 @@ INSERT INTO Venti_Status (status_name) VALUES ("Afastado");
 INSERT INTO Venti_Status (status_name) VALUES ("Aposentado");
 INSERT INTO Venti_Status (status_name) VALUES ("De Férias");
 
+INSERT INTO Venti_Status (status_name) VALUES ("Pendentes");
+INSERT INTO Venti_Status (status_name) VALUES ("Em Curso");
+INSERT INTO Venti_Status (status_name) VALUES ("Finalizadas");
+
 CREATE TABLE Venti_Position (
 	position_id INT AUTO_INCREMENT,
 	position_name VARCHAR(45) NOT NULL,
@@ -151,7 +155,15 @@ INSERT INTO Venti_Performance_Review VALUES (null, CURRENT_DATE(), "Venti, você
 
 CREATE TABLE Venti_Vacation(
 	vacation_id INT AUTO_INCREMENT,
+    vacation_start DATE,
+    vacation_end DATE,
+    employee_id INT,
+    status_id INT,
 
-	CONSTRAINT pk_venti_vacation PRIMARY KEY (vacation_id)
+	CONSTRAINT pk_venti_vacation PRIMARY KEY (vacation_id),
+    CONSTRAINT fk_venti_vacation_employee FOREIGN KEY (employee_id) REFERENCES Venti_Employee (employee_id),
+    CONSTRAINT fk_venti_vacation_status FOREIGN KEY (status_id) REFERENCES Venti_Status (status_id)
     
 );
+INSERT INTO Venti_Vacation VALUES (null, "2024-10-11", "2024-11-11", 4, 6);
+INSERT INTO Venti_Vacation VALUES (null, null, null, 2, 5);
