@@ -69,14 +69,14 @@ INSERT INTO Venti_Employee VALUES (null, "Amber", "684.480.185-83", "2006-08-10"
 
 CREATE TABLE Venti_TimeSheet(
 	timesheet_id INT AUTO_INCREMENT,
-    timesheet_date DATE NOT NULL,
-    timesheet_checkin_time TIME,
-    timesheet_checkout_time TIME,
-    timesheet_overtime INT,
-    employee_id INT,
+	timesheet_date DATE NOT NULL,
+	timesheet_checkin_time TIME,
+	timesheet_checkout_time TIME,
+	timesheet_overtime INT,
+	employee_id INT,
     
-    CONSTRAINT pk_venti_timesheet PRIMARY KEY (timesheet_id),
-    CONSTRAINT fk_venti_timesheet_employee FOREIGN KEY (employee_id) REFERENCES Venti_Employee (employee_id)
+	CONSTRAINT pk_venti_timesheet PRIMARY KEY (timesheet_id),
+	CONSTRAINT fk_venti_timesheet_employee FOREIGN KEY (employee_id) REFERENCES Venti_Employee (employee_id)
     
 );
 INSERT INTO Venti_TimeSheet VALUES(null, "2024-10-08", "08:02:00", "20:00:00", 2, 2);
@@ -110,13 +110,13 @@ INSERT INTO Venti_Payroll VALUES (null, CURRENT_DATE(), 3, 1);
 
 CREATE TABLE Venti_Discount(
 	discount_id INT AUTO_INCREMENT,
-    discount_name VARCHAR(50) NOT NULL,
-    discount_value DECIMAL(10,2) NOT NULL,
-    discount_type ENUM("FIXO", "PERCENTUAL") NOT NULL,
+	discount_name VARCHAR(50) NOT NULL,
+	discount_value DECIMAL(10,2) NOT NULL,
+	discount_type ENUM("FIXO", "PERCENTUAL") NOT NULL,
 	payroll_id INT,
     
-    CONSTRAINT pk_venti_discount PRIMARY KEY (discount_id),
-    CONSTRAINT fk_venti_discount_payroll FOREIGN KEY (payroll_id) REFERENCES Venti_Payroll(payroll_id)
+	CONSTRAINT pk_venti_discount PRIMARY KEY (discount_id),
+	CONSTRAINT fk_venti_discount_payroll FOREIGN KEY (payroll_id) REFERENCES Venti_Payroll(payroll_id)
     
 );
 INSERT INTO Venti_Discount VALUES (null, "IRRF", 27.5, "PERCENTUAL", 1);
@@ -138,12 +138,12 @@ INSERT INTO Venti_Bonus VALUES (null, "Comissões", 5.0, "PERCENTUAL", 1);
 
 CREATE TABLE Venti_Performance_Review(
 	performance_review_id INT AUTO_INCREMENT,
-    performance_review_date DATE,
-    performance_review_commentary LONGTEXT,
-    employee_id INT,
+	performance_review_date DATE,
+	performance_review_commentary LONGTEXT,
+	employee_id INT,
     
-    CONSTRAINT pk_venti_performance_review PRIMARY KEY (performance_review_id),
-    CONSTRAINT fk_venti_performance_review_employee FOREIGN KEY (employee_id) REFERENCES Venti_Employee (employee_id)
+	CONSTRAINT pk_venti_performance_review PRIMARY KEY (performance_review_id),
+	CONSTRAINT fk_venti_performance_review_employee FOREIGN KEY (employee_id) REFERENCES Venti_Employee (employee_id)
 
 );
 INSERT INTO Venti_Performance_Review VALUES (null, CURRENT_DATE(), "Jean, você trabalha muito. Vá tirar umas férias, pelo amor", 2);
