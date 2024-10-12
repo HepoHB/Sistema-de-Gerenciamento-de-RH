@@ -70,27 +70,14 @@ CREATE TABLE Venti_TimeSheet(
 	CONSTRAINT fk_venti_timesheet_employee FOREIGN KEY (employee_id) REFERENCES Venti_Employee (employee_id)
     
 );
-    
-CREATE TABLE Venti_Company(
-	company_id INT AUTO_INCREMENT,
-	company_name VARCHAR(50) NOT NULL,
-	company_cnpj VARCHAR(18) NOT NULL UNIQUE,
-	company_branch INT,
-    
-	CONSTRAINT pk_venti_company PRIMARY KEY (company_id)
-    
-);
-INSERT INTO Venti_Company VALUES (null, "Tevyat", "95.634.269/0001-36", 0);
-    
+
 CREATE TABLE Venti_Payroll(
 	payroll_id INT AUTO_INCREMENT,
 	payroll_date DATE,
 	employee_id INT,
-	company_id INT,
     
 	CONSTRAINT pk_venti_payroll PRIMARY KEY (payroll_id),
-	CONSTRAINT fk_venti_payroll_employee FOREIGN KEY (employee_id) REFERENCES Venti_Employee (employee_id),
-	CONSTRAINT fk_venti_payroll_company FOREIGN KEY (company_id) REFERENCES Venti_Company (company_id)
+	CONSTRAINT fk_venti_payroll_employee FOREIGN KEY (employee_id) REFERENCES Venti_Employee (employee_id)
     
     );
 
@@ -139,5 +126,16 @@ CREATE TABLE Venti_Vacation(
 	CONSTRAINT pk_venti_vacation PRIMARY KEY (vacation_id),
 	CONSTRAINT fk_venti_vacation_employee FOREIGN KEY (employee_id) REFERENCES Venti_Employee (employee_id),
 	CONSTRAINT fk_venti_vacation_status FOREIGN KEY (status_id) REFERENCES Venti_Status (status_id)
+    
+);
+
+CREATE TABLE Venti_User (
+    user_id INT AUTO_INCREMENT,
+    user_name VARCHAR(50) NOT NULL,
+    user_login VARCHAR(50) NOT NULL UNIQUE,
+    user_password VARCHAR(32) NOT NULL,
+    user_access_level ENUM('ADMIN', 'USER') NOT NULL,
+    
+    CONSTRAINT pk_venti_user PRIMARY KEY (user_id)
     
 );
