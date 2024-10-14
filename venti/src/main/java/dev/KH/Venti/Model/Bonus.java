@@ -22,8 +22,7 @@ public class Bonus{
     @Column(name = "bonus_type", nullable = false)
     private Bonus_DiscountType bonus_discountType;
 
-    @OneToMany
-    @JoinColumn(name = "payroll_id", referencedColumnName = "payroll_id", nullable = false)
+    @Column(name = "payroll_id", nullable = false)
     private Long payrollId;
 
     public Long getId(){ return id; }

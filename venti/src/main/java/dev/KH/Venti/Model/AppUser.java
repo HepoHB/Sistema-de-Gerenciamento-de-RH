@@ -5,7 +5,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Entity
 @Table(name = "Venti_User")
-public class User{
+public class AppUser {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_id", nullable = false)
@@ -20,9 +20,9 @@ public class User{
     @Column(name = "user_password", nullable = false)
     private String password;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "user_access_level", nullable = false)
-    private String accessLevel;
+    //@Enumerated(EnumType.STRING)
+    //@Column(name = "user_access_level", nullable = false)
+    //private String accessLevel;
 
     public Long getId(){ return id; }
     public void setId(Long id){ this.id = id; }

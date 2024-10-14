@@ -13,8 +13,7 @@ public class Payroll{
     @Column(name = "payroll_date", nullable = false)
     private String date;
 
-    @ManyToOne
-    @JoinColumn(name = "employee_id", referencedColumnName = "employee_id", nullable = false)
+    @Column(name = "employee")
     private Long employeeId;
 
     public Long getId(){ return id; }

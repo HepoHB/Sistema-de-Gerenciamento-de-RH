@@ -1,5 +1,8 @@
-package dev.KH.Venti.Service;
+package dev.KH.Venti.Service.Fetch;
 
-public class EmployeeService{
+import org.springframework.stereotype.Service;
+
+@Service
+public class EmployeeServiceFetch {
 
 }

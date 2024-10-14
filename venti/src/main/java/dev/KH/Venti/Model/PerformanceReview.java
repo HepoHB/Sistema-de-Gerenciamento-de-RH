@@ -16,8 +16,7 @@ public class PerformanceReview{
     @Column(name = "performance_review_commentary")
     private String commentary;
 
-    @ManyToOne
-    @JoinColumn(name = "employee_id", referencedColumnName = "employee_id", nullable = false)
+    @Column(name = "employee_id")
     private Long employeeId;
 
     public Long getId(){ return id; }
@@ -30,6 +29,6 @@ public class PerformanceReview{
     public void setCommentary(String commentary){ this.commentary = commentary; }
 
     public Long getEmployeeId(){ return employeeId; }
-    public void setEmployeeId(Long employeeId){ this.employeeId = employeeId; }
+    public void setEmployee(Long employeeId){ this.employeeId = employeeId; }
 
 }

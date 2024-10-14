@@ -16,12 +16,10 @@ public class Vacation{
     @Column(name = "vacation_end")
     private String vacationEnd;
 
-    @ManyToOne
-    @JoinColumn(name = "employee_id", referencedColumnName = "employee_id", nullable = false)
+    @Column(name = "employee_id", nullable = false)
     private Long employeeId;
 
-    @ManyToOne
-    @JoinColumn(name = "status_id", referencedColumnName = "status_id", nullable = false)
+    @Column(name = "status_id", nullable = false)
     private Long statusId;
 
     public Long getId(){ return id; }

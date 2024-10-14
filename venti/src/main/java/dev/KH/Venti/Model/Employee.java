@@ -39,16 +39,13 @@ public class Employee{
     @Column(name = "employee_total_overtime")
     private int totalOvertime;
 
-    @ManyToOne
-    @JoinColumn(name = "status_id", referencedColumnName = "status_id", nullable = false)
+    @Column(name = "status_id")
     private Long statusId;
 
-    @ManyToOne
-    @JoinColumn(name = "position_id", referencedColumnName = "position_id", nullable = false)
+    @Column(name = "position_id")
     private Long positionId;
 
-    @ManyToOne
-    @JoinColumn(name = "department_id", referencedColumnName = "department_id", nullable = false)
+    @Column(name = "department_id")
     private Long departmentId;
 
     public Long getId(){ return id; }
@@ -82,7 +79,7 @@ public class Employee{
     public void setTotalOvertime(int totalOvertime){ this.totalOvertime = totalOvertime; }
 
     public Long getStatusId(){ return statusId; }
-    public void setStatusId(Long statusId){ this.statusId = statusId; }
+    public void setStatusId(Status Long){ this.statusId = statusId; }
 
     public Long getPositionId(){ return positionId; }
     public void setPositionId(Long positionId){ this.positionId = positionId; }

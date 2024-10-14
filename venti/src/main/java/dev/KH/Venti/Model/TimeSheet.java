@@ -22,8 +22,7 @@ public class TimeSheet{
     @Column(name = "timesheet_overtime")
     private int overtime;
 
-    @ManyToOne
-    @JoinColumn(name = "employee_id", referencedColumnName = "employee_id", nullable = false)
+    @Column(name = "employee_id")
     private Long employeeId;
 
     public Long getId(){ return id; }
